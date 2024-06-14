@@ -22,10 +22,13 @@ class MapelModel extends CI_Model {
 		$this->db->update($this->tabel, $data, ['id' => $id]);
 	}
 
-	public function ambildata($limit = null){
+	public function ambildata($limit = null, $kelas = null){
 		if (!is_null($limit)){
 			$this->db->limit($limit);
 		}
+        if (!is_null($kelas)){
+            $this->db->where('kelas', $kelas);
+        }
 
 		$query = $this->db->get($this->tabel);
 		return $query->result();

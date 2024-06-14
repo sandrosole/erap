@@ -1,6 +1,6 @@
 <?php
 
-class UserlModel extends CI_Model {
+class UserModel extends CI_Model {
 
     function __construct()
 	{
@@ -22,10 +22,13 @@ class UserlModel extends CI_Model {
 		$this->db->update($this->tabel, $data, ['id' => $id]);
 	}
 
-	public function ambildata($limit = null){
+	public function ambildata($limit = null, $role = null){
 		if (!is_null($limit)){
 			$this->db->limit($limit);
 		}
+        if (!is_null($role)){
+            $this->db->where('role', $role);
+        }
 
 		$query = $this->db->get($this->tabel);
 		return $query->result();
