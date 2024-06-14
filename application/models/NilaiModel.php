@@ -1,6 +1,6 @@
 <?php
 
-class NilailModel extends CI_Model {
+class NilaiModel extends CI_Model {
 
     function __construct()
 	{
@@ -22,12 +22,11 @@ class NilailModel extends CI_Model {
 		$this->db->update($this->tabel, $data, ['id' => $id]);
 	}
 
-	public function ambildata($limit = null){
+	public function ambildata($idsiswa){
+        $this->db->select('map.nama as mapel, map.semester as semester, map.kelas as kelas, nilai');
         $this->db->join('mapel map', 'map.id = nilai.idmapel', 'left');
         $this->db->join('user us', 'us.id = nilai.iduser', 'left');
-        if (!is_null($limit)){
-			$this->db->limit($limit);
-		}
+        $this->db->where('iduser', $idsiswa);
 
 		$query = $this->db->get($this->tabel);
 		return $query->result();
