@@ -15,6 +15,10 @@ class NilaiController extends CI_Controller {
         $this->load->model('NilaiModel', 'nilai');
         $this->load->model('UserModel', 'user');
         $this->load->model('MapelModel', 'mapel');
+        
+        if(!$this->session->userdata('user') || $this->session->userdata('user')['role'] != 'admin'){
+            redirect('AuthController');
+        }
     }
 
 	public function index()

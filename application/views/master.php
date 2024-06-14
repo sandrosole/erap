@@ -53,7 +53,8 @@
 			</div>	
 			<div class="sidebar-wrapper scrollbar scrollbar-inner">
 				<div class="sidebar-content">
-					<ul class="nav nav-secondary">
+                    <ul class="nav nav-secondary">
+                        <?php if($this->session->userdata('user')['role'] == 'admin'){ ?>
 						<li class="nav-item">
 							<a href="../widgets.html">
 								<i class="fas fa-desktop"></i>
@@ -61,17 +62,25 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="../widgets.html">
+							<a href="<?= base_url('MapelController') ?>">
 								<i class="fas fa-desktop"></i>
 								<p>Mapel</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="../widgets.html">
+							<a href="<?= base_url('NilaiController') ?>">
 								<i class="fas fa-desktop"></i>
 								<p>Penilaian</p>
 							</a>
 						</li>
+                        <?php } else { ?>
+                            <li class="nav-item">
+							<a href="../widgets.html">
+								<i class="fas fa-desktop"></i>
+								<p>Nilai</p>
+							</a>
+						</li>
+                        <?php }?>
 					</ul>
 				</div>
 			</div>

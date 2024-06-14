@@ -11,6 +11,9 @@ class MapelController extends CI_Controller {
         parent::__construct();
 
         $this->load->model('MapelModel', 'mapel');
+        if(!$this->session->userdata('user') || $this->session->userdata('user')['role'] != 'admin'){
+            redirect('AuthController');
+        }
     }
 
 	public function index()

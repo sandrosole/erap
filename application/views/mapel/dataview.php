@@ -27,7 +27,7 @@
                         <td><?= $d->kelas ?></td>
                         <td><?= $d->semester ?></td>
                         <td>
-                            <a class="btn btn-warning m-1" href="<?php echo base_url('mapelcontroller/edit.'.$d->id)?>">edit</a>
+                            <a class="btn btn-warning m-1" href="<?php echo base_url('mapelcontroller/edit/'.$d->id)?>">edit</a>
                             <a class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
