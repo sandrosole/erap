@@ -37,18 +37,8 @@ class NilaiController extends CI_Controller {
         $data['siswa'] = $siswa;
         $data['data'] = $this->nilai->ambildata($id);
         $data['mapel'] = $this->mapel->ambildata(null, $siswa->kelas);
-        
 		$this->load->view('master', $data);
     }
-
-    public function edit(){
-
-    }
-
-    public function delete(){
-        
-    }
-
     public function save(){
         $data['idmapel'] = $this->input->post('idmapel');
         $data['nilai'] = $this->input->post('nilai');
@@ -57,9 +47,5 @@ class NilaiController extends CI_Controller {
         $this->nilai->simpan($data);
 
         redirect('NilaiController/add/'. $this->input->post('iduser'));
-    }
-
-    public function update(){
-
     }
 }

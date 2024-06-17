@@ -1,37 +1,37 @@
-<h3>Mapel</h3>
+<h1>User</h1>
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <h5>Tabel Mapel</h5>
-            <a class="btn btn-success" style="float: right;" href="<?php echo base_url()?>mapelcontroller/add">tambah</a>
+            <h5>Tabel Siswa</h5>
+            <a class="btn btn-success" style="float: right;" href="<?php echo base_url()?>Admincontroller/add">tambah</a>
         </div>
         <div class="card-body">
             <table class="table" id="basic-datatables">
                 <thead>
-                <tr>
-                      <th>no</th>
+                    <tr>
+                      <th>No</th>
                       <th>Nama</th>
-                      <th>kelas</th>
-                      <th>semester</th>
-                      <th>opsi</th>
+                      <th>Username</th>
+                      <th>Password</th>
+                      <th>Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $no =1;
-                    foreach ($mapel as $d) {
+                        $no = 1;
+                        foreach($user as $d){
                     ?>
                     <tr>
-                        <td><?= $no++?></td>
+                        <td><?= $no++ ?></td>
                         <td><?= $d->nama ?></td>
-                        <td><?= $d->kelas ?></td>
-                        <td><?= $d->semester ?></td>
+                        <td><?= $d->username ?></td>
+                        <td><?= $d->password ?></td>
                         <td>
-                            <a class="btn btn-warning m-1" href="<?php echo base_url('mapelcontroller/edit/'.$d->id)?>">edit</a>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cobaModal<?= $d->id?>">Hapus</button>
-                            <div class="modal fade" id="cobaModal<?= $d->id?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <a class="btn btn-warning" href="<?= base_url('AdminController/edit/'. $d->id) ?>">Edit</a>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tesModal<?= $d->id?>">Hapus</button>
+                            <div class="modal fade" id="tesModal<?= $d->id?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
-                                <form action="<?= base_url('MapelController/delete/'.$d->id) ?>" method="POST">
+                                <form action="<?= base_url('AdminController/delete/'.$d->id) ?>" method="POST">
                                     <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -39,8 +39,8 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                        <input type="hidden" name="idmapel" value="<?= $d->id ?>">
-                                            <label>Hapus Mapel ini..<?= $d->nama?></label>           
+                                        <input type="hidden" name="iduser" value="<?= $d->id ?>">
+                                            <label>Hapus User ini? <br> Nama:<?= $d->nama ?></label>           
                                         </div>
                                     </div>
                                     <div class="modal-footer">

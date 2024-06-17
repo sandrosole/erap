@@ -56,7 +56,7 @@
                     <ul class="nav nav-secondary">
                         <?php if($this->session->userdata('user')['role'] == 'admin'){ ?>
 						<li class="nav-item">
-							<a href="../widgets.html">
+							<a href="<?= base_url('AdminController') ?>">
 								<i class="fas fa-desktop"></i>
 								<p>User</p>
 							</a>
@@ -75,7 +75,7 @@
 						</li>
                         <?php } else { ?>
                             <li class="nav-item">
-							<a href="../widgets.html">
+							<a href="<?= base_url('UserController') ?>">
 								<i class="fas fa-desktop"></i>
 								<p>Nilai</p>
 							</a>
@@ -121,17 +121,17 @@
 							<li class="nav-item topbar-user dropdown hidden-caret">
 								<a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
 									<div class="avatar-sm">
-										<img src="<?= base_url('')?>assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+										<img src="<?= base_url('')?>assets/img/piece.jpeg" alt="..." class="avatar-img rounded-circle">
 									</div>
 									<span class="profile-username">
-										<span class="op-7">Hi,</span> <span class="fw-bold">Hizrian</span>
+										<span class="op-7">Hi,</span> <span class="fw-bold">Pengguna</span>
 									</span>
 								</a>
 								<ul class="dropdown-menu dropdown-user animated fadeIn">
 									<div class="dropdown-user-scroll scrollbar-outer">
 										<li>
 											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Logout</a>
+											<a class="dropdown-item" href="<?php echo base_url('AuthController/logout');?>">Logout</a>
 										</li>
 									</div>
 								</ul>
