@@ -13,6 +13,7 @@
                       <th>Nama</th>
                       <th>Username</th>
                       <th>Password</th>
+                      <th>Role</th>
                       <th>Opsi</th>
                     </tr>
                 </thead>
@@ -26,15 +27,16 @@
                         <td><?= $d->nama ?></td>
                         <td><?= $d->username ?></td>
                         <td><?= $d->password ?></td>
+                        <td><?= $d->role ?></td>
                         <td>
                             <a class="btn btn-warning" href="<?= base_url('AdminController/edit/'. $d->id) ?>">Edit</a>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tesModal<?= $d->id?>">Hapus</button>
-                            <div class="modal fade" id="tesModal<?= $d->id?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="tesModal<?= $d->id?>">
                             <div class="modal-dialog">
                                 <form action="<?= base_url('AdminController/delete/'.$d->id) ?>" method="POST">
                                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Hapus</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">

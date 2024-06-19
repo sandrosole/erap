@@ -29,18 +29,18 @@
                         <td>
                             <a class="btn btn-warning m-1" href="<?php echo base_url('mapelcontroller/edit/'.$d->id)?>">edit</a>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cobaModal<?= $d->id?>">Hapus</button>
-                            <div class="modal fade" id="cobaModal<?= $d->id?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="cobaModal<?= $d->id?>">
                             <div class="modal-dialog">
                                 <form action="<?= base_url('MapelController/delete/'.$d->id) ?>" method="POST">
                                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Hapus</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
                                         <input type="hidden" name="idmapel" value="<?= $d->id ?>">
-                                            <label>Hapus Mapel ini..<?= $d->nama?></label>           
+                                            <label>Hapus Mapel <?= $d->nama?>?</label>           
                                         </div>
                                     </div>
                                     <div class="modal-footer">
